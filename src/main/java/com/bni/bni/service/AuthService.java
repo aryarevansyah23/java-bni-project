@@ -30,7 +30,6 @@ public class AuthService {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(encoder.encode(password));
-        user.setRole("USER"); // Default role
         user.setCreatedAt(OffsetDateTime.now());
 
         repo.save(user);
@@ -42,7 +41,7 @@ public class AuthService {
     public String login(String username, String password) {
         Optional<User> user = repo.findByUsername(username);
         if (user.isPresent() && encoder.matches(password, user.get().getPassword())) {
-            return jwtUtil.generateToken(username, password, user.get().getRole());
+            return jwtUtil.generateToken(username, password);
         }
 
         return null;

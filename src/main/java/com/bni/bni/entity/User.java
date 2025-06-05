@@ -19,9 +19,6 @@ public class User {
 
     @Column(nullable = false)
     private String password;
-
-    @Column(nullable = false)
-    private String role;
     
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
@@ -34,7 +31,6 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.role = role;
         this.createdAt = createdAt; // Set createdAt to current time
     }
 
@@ -71,15 +67,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    // Getter & Setter untuk role
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public OffsetDateTime getCreatedAt() {
