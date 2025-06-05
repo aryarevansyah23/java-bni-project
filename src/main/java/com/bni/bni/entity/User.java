@@ -14,8 +14,11 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password_hash", nullable = false)
-    private String passwordHash;
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
 
     @Column(nullable = false)
     private String role;
@@ -27,9 +30,10 @@ public class User {
         // Default constructor
     }
 
-    public User(String username, String passwordHash, String role, OffsetDateTime createdAt) {
+    public User(String username, String email, String password, String role, OffsetDateTime createdAt) {
         this.username = username;
-        this.passwordHash = passwordHash;
+        this.email = email;
+        this.password = password;
         this.role = role;
         this.createdAt = createdAt; // Set createdAt to current time
     }
@@ -51,13 +55,22 @@ public class User {
         this.username = username;
     }
 
-    // Getter & Setter untuk passwordHash
-    public String getPasswordHash() {
-        return passwordHash;
+    // Getter & Setter untuk email
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    // Getter & Setter untuk passwordHash
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     // Getter & Setter untuk role
