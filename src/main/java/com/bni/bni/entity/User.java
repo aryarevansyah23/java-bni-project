@@ -27,7 +27,7 @@ public class User {
         // Default constructor
     }
 
-    public User(String username, String email, String password, String role, OffsetDateTime createdAt) {
+    public User(String username, String email, String password, OffsetDateTime createdAt) {
         this.username = username;
         this.email = email;
         this.password = password;
