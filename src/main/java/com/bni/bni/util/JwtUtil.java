@@ -22,6 +22,7 @@ public class JwtUtil {
                 .compact();
     }
 
+    // Validate the JWT token
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
@@ -31,6 +32,7 @@ public class JwtUtil {
         }
     }
 
+    // Get the username from the JWT token
     public String getUsernameFromToken(String token) {
         return Jwts.parserBuilder()
                    .setSigningKey(key)
@@ -40,6 +42,7 @@ public class JwtUtil {
                    .getSubject();
     }
 
+    // Get all claims from the JWT token
     public Claims getAllClaimsFromToken(String token) {
     return Jwts.parserBuilder()
                .setSigningKey(key)
