@@ -3,6 +3,7 @@ package com.bni.bni.entity;
 import jakarta.persistence.*;
 import java.time.OffsetDateTime;
 
+// This code defines a User entity for a Spring Boot application using JPA.
 @Entity
 @Table(name = "users")
 public class User {
