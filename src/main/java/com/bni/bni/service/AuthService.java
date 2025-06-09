@@ -31,6 +31,7 @@ public class AuthService {
         user.setEmail(email);
         user.setPassword(encoder.encode(password));
         user.setCreatedAt(OffsetDateTime.now());
+        user.setUpdatedAt(OffsetDateTime.now()); // Set updatedAt to current time
 
         repo.save(user);
 
